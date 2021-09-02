@@ -11,6 +11,14 @@ const assert = require("assert")
 
         let driver;
 
+                // before(async () => {
+
+// driver = await new Builder().forBrowser("chrome").build()
+
+// await driver.get("http://localhost:3000/attribute")
+
+//         })
+
         beforeEach(async() => {// Initialize webdriver in already opened browser
             let sessionId = test_data.sessionIdqa;
             let url = 'http://localhost:9515/';
