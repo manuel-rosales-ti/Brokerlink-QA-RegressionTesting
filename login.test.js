@@ -19,37 +19,36 @@ const assert = require("assert")
 
 //         })
 
-        beforeEach(async() => {// Initialize webdriver in already opened browser
-            let sessionId = test_data.sessionIdqa;
-            let url = 'http://localhost:9515/';
-            let browser = 'chrome';
-            let startUrl = 'http://localhost:3000/attribute/UserManagement';
-    
-            // Connect to existing session
-            driver = await new WebDriver(
-                sessionId,
-                new _http.Executor(Promise.resolve(url)
-                    .then(
-                        url => new _http.HttpClient(url, null, null))
-                )
-            );
-    
-            // Trying to open URL. If does not work - we need to re-create a session
-            await driver.get(startUrl).catch(async r => {
-                console.log('Session "' + sessionId + '" not found. Creating new session.');
-                driver = await new Builder()
-                    .usingServer(url)
-                    .forBrowser(browser)
-                    .build();
-                driver.getSession().then(function (e) {
-                    console.log('Session: ' + JSON.stringify(e, null, 2));
-                });
-                driver.get(startUrl);
-            });
-        })
-
     // it block Test Case 1 Login Test
     it("Login Test", async function () {
+
+        let sessionId = test_data.sessionIdqa;
+        let url = 'http://localhost:9515/';
+        let browser = 'chrome';
+        let startUrl = 'http://localhost:3000/attribute';
+
+        // Connect to existing session
+        driver = await new WebDriver(
+            sessionId,
+            new _http.Executor(Promise.resolve(url)
+                .then(
+                    url => new _http.HttpClient(url, null, null))
+            )
+        );
+
+        // Trying to open URL. If does not work - we need to re-create a session
+        await driver.get(startUrl).catch(async r => {
+            console.log('Session "' + sessionId + '" not found. Creating new session.');
+            driver = await new Builder()
+                .usingServer(url)
+                .forBrowser(browser)
+                .build();
+            driver.getSession().then(function (e) {
+                console.log('Session: ' + JSON.stringify(e, null, 2));
+            });
+            driver.get(startUrl);
+        });
+    
     
         // Steps for Test Case Login
 
@@ -66,6 +65,34 @@ const assert = require("assert")
     })
 
     it("Change Language", async function () {
+
+        let sessionId = test_data.sessionIdqa;
+        let url = 'http://localhost:9515/';
+        let browser = 'chrome';
+        let startUrl = 'http://localhost:3000/attribute/home';
+
+        // Connect to existing session
+        driver = await new WebDriver(
+            sessionId,
+            new _http.Executor(Promise.resolve(url)
+                .then(
+                    url => new _http.HttpClient(url, null, null))
+            )
+        );
+
+        // Trying to open URL. If does not work - we need to re-create a session
+        await driver.get(startUrl).catch(async r => {
+            console.log('Session "' + sessionId + '" not found. Creating new session.');
+            driver = await new Builder()
+                .usingServer(url)
+                .forBrowser(browser)
+                .build();
+            driver.getSession().then(function (e) {
+                console.log('Session: ' + JSON.stringify(e, null, 2));
+            });
+            driver.get(startUrl);
+        });
+    
 
         // Steps for Test Case Change Language
 
