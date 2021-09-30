@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-assign-attribute": "npx mocha --no-timeouts 'assign_attribute.test.js'",
+    "test-attribute-group": "npx mocha --no-timeouts 'attribute_group.test.js'",
+    "test-attribute-schedule": "npx mocha --no-timeouts 'attribute_schedule.test.js'",
+    "test-login": "npx mocha --no-timeouts 'login.test.js'",
+    "test-user-management": "npx mocha --no-timeouts 'user_management.test.js'",
+    "regression-testing-brokerlink": "npx mocha --no-timeouts '*.test.js'"
   },
   "keywords": [],
   "author": "",
